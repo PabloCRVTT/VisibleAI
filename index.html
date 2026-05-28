@@ -280,6 +280,43 @@
   }
   .stat-desc { font-size: 13px; color: var(--ink-muted); margin-top: 6px; max-width: 160px; line-height: 1.45; }
 
+  /* ── NO-CONSULTANT ── */
+  .noconsult-section { padding: 100px 48px; background: var(--ink); color: var(--bg); }
+  .noconsult-section .section-label { color: rgba(247,246,242,0.45); }
+  .noconsult-section .section-title { color: var(--bg); max-width: 760px; }
+  .noconsult-section .section-body  { color: rgba(247,246,242,0.6); max-width: 560px; }
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 52px; max-width: 860px;
+  }
+  .compare-col {
+    border-radius: 16px; padding: 32px 36px;
+  }
+  .compare-before {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .compare-after {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+  }
+  .compare-label {
+    font-family: var(--font-display); font-size: 11px;
+    font-weight: 900; letter-spacing: .14em; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .compare-before .compare-label { color: rgba(247,246,242,0.4); }
+  .compare-after  .compare-label { color: var(--accent-deep); }
+  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .compare-list li {
+    font-size: 15px; font-weight: 400; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .compare-before .compare-list li { color: rgba(247,246,242,0.45); text-decoration: line-through; text-decoration-color: rgba(247,246,242,0.2); }
+  .compare-after  .compare-list li { color: var(--ink); }
+  .compare-list li::before { flex-shrink: 0; margin-top: 1px; font-size: 13px; }
+  .compare-before .compare-list li::before { content: '✕'; color: rgba(247,246,242,0.25); }
+  .compare-after  .compare-list li::before { content: '✓'; color: var(--accent-deep); font-weight: 700; }
+
   /* ── HOW ── */
   .how-section { padding: 100px 48px; background: var(--bg-soft); }
   .steps-grid {
@@ -495,11 +532,12 @@
   @media (max-width: 900px) {
     nav { padding: 14px 20px; }
     nav ul { display: none; }
-    .hero, .scan-section, .problem-section, .how-section,
+    .hero, .scan-section, .problem-section, .noconsult-section, .how-section,
     .pricing-section, .test-section, .faq-section, .cta-section { padding-left: 20px; padding-right: 20px; }
     .score-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
     .steps-grid { grid-template-columns: 1fr 1fr; }
     .pricing-grid, .test-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 10px; text-align: center; }
   }
 </style>
@@ -669,6 +707,39 @@
   </div>
 </section>
 
+  </div>
+</section>
+
+<!-- NO-CONSULTANT -->
+<section class="noconsult-section">
+  <div class="inner">
+    <p class="section-label">Sin intermediarios</p>
+    <h2 class="section-title">No necesitás un consultor para saber por qué la IA te ignora</h2>
+    <p class="section-body">Antes, entender tu visibilidad en buscadores requería semanas de análisis y presupuestos que solo las grandes empresas podían pagar. VisibleAI lo hace en tiempo real — y te permite gestionar los cambios con tu propio equipo.</p>
+    <div class="compare-grid">
+      <div class="compare-col compare-before">
+        <p class="compare-label">El camino tradicional</p>
+        <ul class="compare-list">
+          <li>Contratar una consultora por semanas</li>
+          <li>Presupuestos de $1.000 USD o más</li>
+          <li>Reporte estático que caduca rápido</li>
+          <li>Sin visibilidad del proceso</li>
+          <li>Cambios lentos, sin seguimiento</li>
+          <li>Resultado incierto</li>
+        </ul>
+      </div>
+      <div class="compare-col compare-after">
+        <p class="compare-label">Con VisibleAI</p>
+        <ul class="compare-list">
+          <li>Análisis completo en menos de 60 s</li>
+          <li>Desde gratis, sin tarjeta de crédito</li>
+          <li>Diagnóstico siempre actualizable</li>
+          <li>Plan de acción claro para tu equipo</li>
+          <li>Cada cambio es medible y rastreable</li>
+          <li>Resultados visibles en semanas</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
