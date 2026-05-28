@@ -140,6 +140,8 @@
     line-height: 1.25;
   }
   .hero h1 .line-muted { color: var(--ink-muted); }
+  #ai-name { transition: opacity 0.22s ease; }
+  #ai-name.hiding { opacity: 0; }
 
   .hero-sub {
     margin-top: 28px; max-width: 500px;
@@ -639,7 +641,7 @@
 
   <h1>
     ¿Te menciona<br>
-    <span class="hl">ChatGPT</span> cuando<br>
+    <span class="hl" id="ai-name">ChatGPT</span> cuando<br>
     buscan lo tuyo?
   </h1>
 
@@ -1089,6 +1091,18 @@ function handleScan2() {
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('url-input').addEventListener('keydown', e => { if (e.key === 'Enter') handleScan(); });
   document.getElementById('url-input-2').addEventListener('keydown', e => { if (e.key === 'Enter') handleScan2(); });
+
+  const aiNames = ['ChatGPT', 'Claude', 'Perplexity', 'la IA'];
+  let aiIdx = 0;
+  const aiEl = document.getElementById('ai-name');
+  setInterval(() => {
+    aiEl.classList.add('hiding');
+    setTimeout(() => {
+      aiIdx = (aiIdx + 1) % aiNames.length;
+      aiEl.textContent = aiNames[aiIdx];
+      aiEl.classList.remove('hiding');
+    }, 240);
+  }, 2800);
 
   setTimeout(() => {
     document.querySelectorAll('.bar-fill').forEach(b => {
