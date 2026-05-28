@@ -464,6 +464,14 @@
   .test-name { font-size: 13px; font-weight: 500; color: var(--ink); }
   .test-role { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
 
+  /* ── AEO EXPLAINER ── */
+  .aeo-section { padding: 80px 48px; background: var(--bg); }
+  .aeo-section .inner { max-width: 760px; margin: 0 auto; width: 100%; }
+  .aeo-section h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; margin-bottom: 24px; line-height: 1.2; }
+  .aeo-section p { font-size: 16px; line-height: 1.75; color: var(--ink-mid); margin-bottom: 20px; }
+  .aeo-section p strong { color: var(--ink); font-weight: 600; }
+  .aeo-section h3 { font-size: 18px; font-weight: 600; color: var(--ink); margin: 32px 0 10px; }
+
   /* ── FAQ ── */
   .faq-section { padding: 80px 48px 100px; background: var(--bg-soft); }
   .faq-section .inner { max-width: 760px; margin: 0 auto; width: 100%; }
@@ -543,6 +551,7 @@
     footer { flex-direction: column; gap: 10px; text-align: center; }
   }
 </style>
+  <link rel="canonical" href="https://pablocrvtt.github.io/VisibleAI/">
   <meta name="description" content="Analiza si ChatGPT, Claude y Perplexity mencionan tu sitio web. Diagnóstico AEO gratuito para empresas en Chile, Colombia y México.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="VisibleAI — ¿Te menciona ChatGPT cuando buscan lo tuyo?">
@@ -960,6 +969,34 @@
 </section>
   </div>
 </section>
+
+<!-- AEO EXPLAINER -->
+<section class="aeo-section">
+  <div class="inner">
+    <p class="section-label">Guía rápida</p>
+    <h2>¿Qué es AEO y por qué tu negocio lo necesita hoy?</h2>
+
+    <p>
+      <strong>AEO (Answer Engine Optimization)</strong> es la práctica de optimizar el contenido de tu sitio web para que los modelos de inteligencia artificial —ChatGPT, Claude, Perplexity, Google AI Overviews— lo citen como fuente cuando alguien hace una pregunta relevante para tu negocio. A diferencia del SEO tradicional, que busca posicionarte en la lista de resultados de Google, el AEO busca que la IA te mencione directamente en su respuesta.
+    </p>
+
+    <h3>¿Por qué importa ahora?</h3>
+    <p>
+      En 2025, el 13% de las búsquedas en escritorio ya son respondidas directamente por IA, sin que el usuario haga clic en ningún sitio. Este porcentaje crece cada trimestre. Si un potencial cliente le pregunta a ChatGPT "¿qué empresa de [tu rubro] recomendás en [tu ciudad]?" y tu sitio no está optimizado, simplemente no vas a aparecer —aunque tengas el mejor producto del mercado y un buen ranking en Google.
+    </p>
+
+    <h3>¿En qué se diferencia del SEO?</h3>
+    <p>
+      El SEO optimiza para algoritmos de ranking que ordenan páginas por relevancia y autoridad de dominio. El AEO optimiza para modelos de lenguaje que extraen y sintetizan información. Los factores son distintos: un sitio bien posicionado en Google puede ser completamente invisible para ChatGPT si le faltan datos estructurados, si su contenido no está organizado en formato de pregunta-respuesta, o si no demuestra expertise con claridad. Hemos analizado sitios que rankean en el top 3 de Google y son ignorados por todos los LLMs.
+    </p>
+
+    <h3>¿Qué mide VisibleAI?</h3>
+    <p>
+      VisibleAI evalúa tu sitio en tres dimensiones. <strong>Datos estructurados (D1):</strong> si tenés los metadatos que los rastreadores de IA usan para identificar tu negocio (JSON-LD, Schema.org, Open Graph, meta description). <strong>Calidad del contenido (D2):</strong> qué tan citable es tu texto — si es claro, si suena confiable y si responde preguntas con precisión. <strong>Estructura de página (D3):</strong> si usás jerarquía de títulos, tenés suficiente contenido y una sección de preguntas frecuentes. El resultado es un score de 0 a 70 con un plan de acción específico para cada punto que falta.
+    </p>
+  </div>
+</section>
+<hr class="divider">
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
