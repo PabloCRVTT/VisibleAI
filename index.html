@@ -628,7 +628,7 @@
       <li><a href="#precios">Precios</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <button class="nav-cta" onclick="document.getElementById('url-input').focus()">Analizar mi sitio →</button>
+    <a class="nav-cta" href="http://localhost:5173">Ingresar →</a>
   </div>
 </nav>
 
@@ -649,9 +649,9 @@
   </p>
 
   <div class="hero-actions">
-    <button class="btn-primary" onclick="document.getElementById('url-input').focus()">
+    <a class="btn-primary" href="http://localhost:5173" style="text-decoration:none">
       Analizar gratis →
-    </button>
+    </a>
     <button class="btn-secondary" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">
       Ver cómo funciona
     </button>
@@ -669,15 +669,13 @@
   </div>
 </section>
 
-<!-- URL INPUT -->
+<!-- CTA entrada al app -->
 <section class="scan-section">
   <div class="section-wrap">
-  <div class="scan-box">
-    <input id="url-input" type="text" placeholder="tucomunidad.cl o tutienda.com.co..." autocomplete="off">
-    <button class="scan-btn" onclick="handleScan()">Analizar ahora →</button>
-  </div>
-  <p class="scan-hint" id="scan-hint-1">Gratis · Sin registro · Resultado en 30–60 segundos</p>
-  <p class="scan-status" id="scan-status-1"></p>
+    <a class="btn-primary" href="http://localhost:5173" style="text-decoration:none;display:inline-block;font-size:17px;padding:14px 32px">
+      Crear cuenta gratis →
+    </a>
+    <p class="scan-hint">5 análisis gratuitos por mes · Sin tarjeta de crédito</p>
   </div>
 </section>
 
@@ -885,7 +883,7 @@
         <li class="dim">Reporte PDF exportable</li>
         <li class="dim">Comparación vs. competencia</li>
       </ul>
-      <button class="price-btn outline" onclick="document.getElementById('url-input').focus()">Analizar ahora</button>
+      <a class="price-btn outline" href="http://localhost:5173" style="text-decoration:none;display:block;text-align:center">Empezar gratis</a>
     </div>
     <div class="price-card featured">
       <span class="price-tag-label">Más popular</span>
@@ -900,7 +898,7 @@
         <li>1 competidor incluido</li>
         <li class="dim">Monitoreo continuo</li>
       </ul>
-      <button class="price-btn primary" onclick="document.getElementById('url-input').focus()">Obtener reporte →</button>
+      <a class="price-btn primary" href="http://localhost:5173" style="text-decoration:none;display:block;text-align:center">Obtener reporte →</a>
     </div>
     <div class="price-card">
       <p class="price-name">Monitor mensual</p>
@@ -997,11 +995,10 @@
   <div class="cta-accent-blob"></div>
   <h2>Descubre si los modelos<br>de IA te <span class="hl">conocen</span></h2>
   <p>Diagnóstico gratuito. Sin tarjeta de crédito. 30 segundos.</p>
-  <div class="cta-scan-box">
-    <input type="text" placeholder="tupagina.cl..." autocomplete="off" id="url-input-2">
-    <button class="scan-btn" style="background:var(--accent);color:var(--ink)" onclick="handleScan2()">Analizar gratis →</button>
-  </div>
-  <p class="scan-status" id="scan-status-2" style="justify-content:center;color:rgba(247,246,242,0.8)"></p>
+  <a class="btn-primary" href="http://localhost:5173" style="text-decoration:none;display:inline-block;font-size:17px;padding:14px 36px;margin-top:8px">
+    Crear cuenta gratis →
+  </a>
+  <p style="margin-top:14px;font-size:13px;opacity:0.6">5 análisis gratuitos · Sin tarjeta de crédito</p>
 </section>
 
 <!-- FOOTER -->
@@ -1018,7 +1015,8 @@
 </footer>
 
 <script>
-const BACKEND = "https://backend-production-9578e.up.railway.app";
+// Actualizar APP_URL cuando el dashboard esté deployado en Vercel
+const APP_URL = 'http://localhost:5173';
 
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
@@ -1027,68 +1025,7 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-async function runScan(url, statusEl, btnEl) {
-  url = url.trim();
-  if (!url) return;
-
-  btnEl.disabled = true;
-  statusEl.className = 'scan-status loading';
-  statusEl.innerHTML = '<span class="spin">↻</span> Analizando <strong>' + escHtml(url) + '</strong>… puede tardar hasta 60 s.';
-
-  try {
-    const res = await fetch(BACKEND + '/analizar', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url }),
-    });
-
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      throw new Error(body.error || 'Error ' + res.status);
-    }
-
-    const blob = await res.blob();
-    const disp = res.headers.get('Content-Disposition') || '';
-    const match = disp.match(/filename="?([^";\n]+)"?/);
-    const filename = match ? match[1] : 'reporte_AEO.pdf';
-
-    const objUrl = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = objUrl; a.download = filename;
-    document.body.appendChild(a); a.click(); a.remove();
-    URL.revokeObjectURL(objUrl);
-
-    statusEl.className = 'scan-status success';
-    statusEl.textContent = '✓ Reporte generado.';
-  } catch (err) {
-    statusEl.className = 'scan-status error';
-    statusEl.textContent = '✗ ' + (err.message || 'Error desconocido. Intentá de nuevo.');
-  } finally {
-    btnEl.disabled = false;
-  }
-}
-
-function handleScan() {
-  const inp = document.getElementById('url-input');
-  if (!inp.value.trim()) { inp.focus(); return; }
-  const btn = inp.closest('.scan-box').querySelector('.scan-btn');
-  runScan(inp.value, document.getElementById('scan-status-1'), btn);
-}
-
-function handleScan2() {
-  const inp = document.getElementById('url-input-2');
-  if (!inp.value.trim()) { inp.focus(); return; }
-  const btn = inp.closest('.cta-scan-box').querySelector('.scan-btn');
-  runScan(inp.value, document.getElementById('scan-status-2'), btn);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('url-input').addEventListener('keydown', e => { if (e.key === 'Enter') handleScan(); });
-  document.getElementById('url-input-2').addEventListener('keydown', e => { if (e.key === 'Enter') handleScan2(); });
 
   const aiNames = ['ChatGPT', 'Claude', 'Perplexity', 'la IA'];
   let aiIdx = 0;
