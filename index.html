@@ -407,8 +407,8 @@
   .pricing-section .section-title { margin: 0 auto 12px; }
   .pricing-section .section-body  { margin: 0 auto 52px; }
   .pricing-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 14px; max-width: 900px; margin: 0 auto; text-align: left;
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 14px; max-width: 1160px; margin: 0 auto; text-align: left;
   }
   .price-card {
     background: var(--bg); border: 1.5px solid var(--border);
@@ -878,51 +878,75 @@
   <div class="inner">
   <p class="section-label">Precios</p>
   <h2 class="section-title">Elige tu nivel de visibilidad</h2>
-  <p class="section-body">Sin contratos anuales. Sin letra chica. Empieza gratis y sube cuando quieras.</p>
+  <p class="section-body">Suscripciones mensuales. Sin contratos anuales. Sin letra chica. Empieza gratis y sube cuando quieras.</p>
   <div class="pricing-grid">
+
+    <!-- FREE -->
     <div class="price-card">
-      <p class="price-name">Diagnóstico</p>
-      <div class="price-amount">Gratis</div>
-      <p class="price-period">score parcial, sin registro</p>
+      <p class="price-name">Gratis</p>
+      <div class="price-amount" style="font-size:2rem">$0</div>
+      <p class="price-period">para siempre</p>
       <ul class="price-features">
-        <li>Score técnico y semántico</li>
-        <li>Top 3 problemas detectados</li>
-        <li>Sin tarjeta de crédito</li>
-        <li class="dim">Prueba real en LLMs</li>
-        <li class="dim">Reporte PDF exportable</li>
-        <li class="dim">Comparación vs. competencia</li>
+        <li>Hasta 5 análisis por mes</li>
+        <li>Datos estructurados (D1)</li>
+        <li>Top 3 acciones a tomar</li>
+        <li>Reporte compartible</li>
+        <li class="dim">Calidad semántica con IA (D2)</li>
+        <li class="dim">Estructura de página (D3)</li>
+        <li class="dim">PDF exportable</li>
       </ul>
       <a class="price-btn outline" href="https://visibleai-app.vercel.app" style="text-decoration:none;display:block;text-align:center">Empezar gratis</a>
     </div>
+
+    <!-- STARTER -->
     <div class="price-card featured">
       <span class="price-tag-label">Más popular</span>
-      <p class="price-name">Reporte completo</p>
-      <div class="price-amount">$9.990</div>
-      <p class="price-period">pago único · CLP</p>
+      <p class="price-name">Starter</p>
+      <div class="price-amount">Próximamente</div>
+      <p class="price-period">suscripción mensual</p>
       <ul class="price-features">
-        <li>AEO Score 100% (4 dimensiones)</li>
-        <li>Prueba real en ChatGPT + Claude</li>
-        <li>Plan de acción priorizado</li>
+        <li>Hasta 30 análisis por mes</li>
+        <li>1 dominio</li>
+        <li>Análisis completo (D1 + D2 + D3)</li>
         <li>PDF exportable y compartible</li>
-        <li>1 competidor incluido</li>
-        <li class="dim">Monitoreo continuo</li>
+        <li>Top 3 acciones priorizadas</li>
+        <li class="dim">Múltiples dominios</li>
       </ul>
-      <a class="price-btn primary" href="https://visibleai-app.vercel.app" style="text-decoration:none;display:block;text-align:center">Obtener reporte →</a>
+      <button class="price-btn primary" style="opacity:.6;cursor:default">Próximamente</button>
     </div>
+
+    <!-- PRO -->
     <div class="price-card">
-      <p class="price-name">Monitor mensual</p>
-      <div class="price-amount">$19.990</div>
-      <p class="price-period">por sitio / mes · CLP</p>
+      <p class="price-name">Pro</p>
+      <div class="price-amount">Próximamente</div>
+      <p class="price-period">suscripción mensual</p>
       <ul class="price-features">
-        <li>Todo lo del reporte</li>
-        <li>Re-análisis automático semanal</li>
-        <li>Alertas de cambios en LLMs</li>
-        <li>Hasta 3 competidores</li>
-        <li>Historial de score</li>
-        <li>Acceso API para agencias</li>
+        <li>Análisis ilimitados</li>
+        <li>Hasta 10 dominios</li>
+        <li>Análisis completo (D1 + D2 + D3)</li>
+        <li>PDF exportable y compartible</li>
+        <li>Top 3 acciones priorizadas</li>
+        <li>Historial de evolución</li>
       </ul>
       <button class="price-btn outline" style="opacity:.5;cursor:default">Próximamente</button>
     </div>
+
+    <!-- ENTERPRISE -->
+    <div class="price-card">
+      <p class="price-name">Enterprise</p>
+      <div class="price-amount" style="font-size:1.4rem;padding-top:6px">A medida</div>
+      <p class="price-period">para tu empresa</p>
+      <ul class="price-features">
+        <li>Dominios ilimitados</li>
+        <li>Análisis ilimitados</li>
+        <li>Todo lo del plan Pro</li>
+        <li>Integración a medida</li>
+        <li>Soporte prioritario</li>
+        <li>Facturación corporativa</li>
+      </ul>
+      <a class="price-btn outline" href="mailto:hola@visibleai.app" style="text-decoration:none;display:block;text-align:center">Conversemos →</a>
+    </div>
+
   </div>
 </section>
 
