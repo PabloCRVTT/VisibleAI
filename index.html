@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VisibleAI — ¿Te menciona ChatGPT?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,7 +22,7 @@
     --border: #e2e0d8;
     --border-strong: #c8c6bc;
     --font-display: 'Jost', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-body: 'Jost', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -256,7 +256,6 @@
   .how-section .inner,
   .score-section .inner,
   .test-section .inner,
-  .faq-section .inner,
   .pricing-section .inner,
   .cta-section .inner,
   footer .inner {
@@ -264,7 +263,11 @@
     margin: 0 auto;
     width: 100%;
   }
-  .stats-row { display: flex; gap: 48px; flex-wrap: wrap; }
+  .problem-section .inner { max-width: 1100px; margin: 0 auto; width: 100%; text-align: center; }
+  .problem-section .section-title { max-width: 100%; }
+  .problem-section .section-body  { max-width: 680px; margin: 0 auto 52px; }
+  .stats-row { display: flex; gap: 64px; flex-wrap: wrap; justify-content: center; }
+  .stat-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
   .stat-num {
     font-family: var(--font-display);
     font-size: 52px; font-weight: 900; line-height: 1;
@@ -422,7 +425,8 @@
   .test-role { font-size: 11px; color: var(--ink-muted); margin-top: 1px; }
 
   /* ── FAQ ── */
-  .faq-section { padding: 80px 48px 100px; background: var(--bg-soft); max-width: 760px; }
+  .faq-section { padding: 80px 48px 100px; background: var(--bg-soft); }
+  .faq-section .inner { max-width: 760px; margin: 0 auto; width: 100%; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-q {
     width: 100%; background: none; border: none; color: var(--ink);
@@ -679,25 +683,25 @@
       <p class="step-num">01</p>
       <div class="step-icon">🔍</div>
       <h3 class="step-title">Ingresa tu URL</h3>
-      <p class="step-desc">Pegamos tu dominio y rastreamos automáticamente tus páginas clave — sin instalar nada.</p>
+      <p class="step-desc">Pegás tu dominio y en segundos comenzamos a rastrear tus páginas clave. Sin instalar plugins, sin acceso a tu CMS, sin tocar nada en tu sitio.</p>
     </div>
     <div class="step-card">
       <p class="step-num">02</p>
       <div class="step-icon">⚙️</div>
-      <h3 class="step-title">Análisis técnico</h3>
-      <p class="step-desc">Evaluamos estructura, datos semánticos, legibilidad y señales de autoridad que los LLMs priorizan.</p>
+      <h3 class="step-title">Análisis técnico profundo</h3>
+      <p class="step-desc">Evaluamos más de 40 señales: estructura HTML, datos estructurados (JSON-LD, Schema.org), legibilidad semántica, velocidad y todo lo que los LLMs consideran para citar una fuente.</p>
     </div>
     <div class="step-card">
       <p class="step-num">03</p>
       <div class="step-icon">🤖</div>
-      <h3 class="step-title">Prueba real en LLMs</h3>
-      <p class="step-desc">Preguntamos a ChatGPT, Claude y Perplexity sobre tu categoría y verificamos si te mencionan.</p>
+      <h3 class="step-title">Evaluación con IA</h3>
+      <p class="step-desc">Claude analiza el contenido de tu sitio con los mismos criterios que usan los motores de respuesta para decidir qué fuentes citar. Identifica exactamente qué información falta o está mal formulada.</p>
     </div>
     <div class="step-card">
       <p class="step-num">04</p>
       <div class="step-icon">📋</div>
-      <h3 class="step-title">Score + plan</h3>
-      <p class="step-desc">Recibes tu AEO Score con hallazgos priorizados y pasos concretos para mejorar tu visibilidad.</p>
+      <h3 class="step-title">Reporte PDF con plan de acción</h3>
+      <p class="step-desc">Recibís tu AEO Score desglosado en 4 dimensiones, los hallazgos más críticos y los pasos concretos —en orden de impacto— para aparecer en las respuestas de ChatGPT, Perplexity y Gemini.</p>
     </div>
   </div>
 </section>
@@ -815,8 +819,8 @@
     <div class="price-card featured">
       <span class="price-tag-label">Más popular</span>
       <p class="price-name">Reporte completo</p>
-      <div class="price-amount">$19</div>
-      <p class="price-period">pago único por dominio</p>
+      <div class="price-amount">$9.990</div>
+      <p class="price-period">pago único · CLP</p>
       <ul class="price-features">
         <li>AEO Score 100% (4 dimensiones)</li>
         <li>Prueba real en ChatGPT + Claude</li>
@@ -829,8 +833,8 @@
     </div>
     <div class="price-card">
       <p class="price-name">Monitor mensual</p>
-      <div class="price-amount">$29</div>
-      <p class="price-period">por sitio / mes</p>
+      <div class="price-amount">$19.990</div>
+      <p class="price-period">por sitio / mes · CLP</p>
       <ul class="price-features">
         <li>Todo lo del reporte</li>
         <li>Re-análisis automático semanal</li>
@@ -850,8 +854,8 @@
 <!-- TESTIMONIALS -->
 <section class="test-section">
   <div class="inner">
-  <p class="section-label">Lo que dicen</p>
-  <h2 class="section-title" style="max-width:400px">Primeros resultados de la beta</h2>
+  <p class="section-label">Clientes</p>
+  <h2 class="section-title" style="max-width:480px">Lo que dicen quienes ya lo usaron</h2>
   <div class="test-grid">
     <div class="test-card">
       <p class="test-text">"Llevaba un año con mi tienda de café de especialidad y nunca aparecía cuando alguien le preguntaba a ChatGPT por café en Santiago. Con el diagnóstico entendí exactamente por qué."</p>
@@ -988,7 +992,7 @@ async function runScan(url, statusEl, btnEl) {
     URL.revokeObjectURL(objUrl);
 
     statusEl.className = 'scan-status success';
-    statusEl.textContent = '✓ Reporte generado — el PDF se descargó automáticamente.';
+    statusEl.textContent = '✓ Reporte generado.';
   } catch (err) {
     statusEl.className = 'scan-status error';
     statusEl.textContent = '✗ ' + (err.message || 'Error desconocido. Intentá de nuevo.');
