@@ -484,6 +484,98 @@
   .aeo-section p strong { color: var(--ink); font-weight: 600; }
   .aeo-section h3 { font-size: 18px; font-weight: 600; color: var(--ink); margin: 32px 0 10px; }
 
+  /* ── GUIDE PROMO ── */
+  .guide-section {
+    padding: 80px 48px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+  }
+  .guide-section .inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .guide-card {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+  }
+  .guide-card:hover { border-color: var(--border-strong); }
+  .guide-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--accent); color: var(--accent-deep);
+    border-radius: 20px;
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 12px; margin-bottom: 18px;
+  }
+  .guide-tag::before { content: ''; width: 5px; height: 5px; background: var(--accent-deep); border-radius: 50%; }
+  .guide-card h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 900; letter-spacing: -0.8px;
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  .guide-card p {
+    font-size: 15px; color: var(--ink-mid);
+    max-width: 540px; line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .guide-steps-preview {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .guide-step-item {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: var(--ink-mid);
+  }
+  .guide-step-item .num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-deep);
+    font-size: 11px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .guide-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: var(--bg);
+    font-weight: 600; font-size: 15px;
+    padding: 13px 26px; border-radius: 8px;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+  }
+  .guide-cta:hover { background: var(--ink-mid); transform: translateY(-2px); }
+  .guide-visual {
+    flex-shrink: 0;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    min-width: 240px;
+  }
+  .guide-visual .gv-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 16px;
+  }
+  .guide-visual .gv-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .guide-visual .gv-row:last-child { border-bottom: none; }
+  .guide-visual .gv-source { color: var(--ink-mid); }
+  .guide-visual .gv-val { font-weight: 700; font-family: var(--font-display); color: var(--ink); }
+  .guide-visual .gv-val.up { color: #3a7d00; }
+  .guide-visual .gv-trend { font-size: 11px; color: #3a7d00; margin-left: 6px; }
+
+  @media (max-width: 900px) {
+    .guide-card { grid-template-columns: 1fr; padding: 32px 24px; }
+    .guide-visual { display: none; }
+    .guide-section { padding: 60px 20px; }
+  }
+
   /* ── FAQ ── */
   .faq-section { padding: 80px 48px 100px; background: var(--bg-soft); }
   .faq-section .inner { max-width: 760px; margin: 0 auto; width: 100%; }
@@ -647,6 +739,7 @@
     <ul>
       <li><a href="#como-funciona">Cómo funciona</a></li>
       <li><a href="#precios">Precios</a></li>
+      <li><a href="/trafico-ia.html">Guías</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a class="nav-cta" href="https://app.visible-ai.cl">Ingresar →</a>
@@ -1014,6 +1107,48 @@
     </p>
   </div>
 </section>
+<!-- GUIDE PROMO -->
+<section class="guide-section">
+  <div class="inner">
+    <div class="guide-card">
+      <div class="guide-left">
+        <div class="guide-tag">Guía gratuita</div>
+        <h2>¿Cuántas personas llegan a tu sitio desde la IA?</h2>
+        <p>
+          Cada vez más visitas llegan desde ChatGPT, Perplexity o Claude — pero la mayoría de los negocios no sabe cómo medirlo. Armamos una guía paso a paso para que cualquiera pueda rastrear ese tráfico con Google Analytics, sin conocimientos técnicos.
+        </p>
+        <div class="guide-steps-preview">
+          <div class="guide-step-item"><span class="num">1</span> Instala Google Analytics (o conéctalo si ya lo tienes)</div>
+          <div class="guide-step-item"><span class="num">2</span> Encuentra el reporte de fuentes de tráfico</div>
+          <div class="guide-step-item"><span class="num">3</span> Identifica los dominios de cada IA</div>
+          <div class="guide-step-item"><span class="num">4</span> Crea un segmento "Tráfico IA" para seguirlo</div>
+          <div class="guide-step-item"><span class="num">5</span> Configura un reporte automático semanal</div>
+        </div>
+        <a href="/trafico-ia.html" class="guide-cta">Leer la guía completa →</a>
+      </div>
+      <div class="guide-visual">
+        <div class="gv-label">Tráfico referido · Ejemplo</div>
+        <div class="gv-row">
+          <span class="gv-source">perplexity.ai</span>
+          <span class="gv-val up">+38% <span class="gv-trend">↑</span></span>
+        </div>
+        <div class="gv-row">
+          <span class="gv-source">chat.openai.com</span>
+          <span class="gv-val up">+24% <span class="gv-trend">↑</span></span>
+        </div>
+        <div class="gv-row">
+          <span class="gv-source">claude.ai</span>
+          <span class="gv-val up">+17% <span class="gv-trend">↑</span></span>
+        </div>
+        <div class="gv-row">
+          <span class="gv-source">gemini.google.com</span>
+          <span class="gv-val up">+11% <span class="gv-trend">↑</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <hr class="divider">
 
 <!-- FAQ -->
