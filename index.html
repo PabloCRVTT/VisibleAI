@@ -1193,6 +1193,36 @@ footer a:hover { color: var(--ink); }
   </div>
 </section>
 
+<!-- NEWSLETTER POST-PRECIOS -->
+<section style="padding:0 48px 80px;background:var(--bg-soft)">
+  <div style="max-width:1120px;margin:0 auto">
+    <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:20px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:10px">Newsletter</p>
+        <h3 style="font-size:clamp(18px,2.5vw,26px);font-weight:900;letter-spacing:-.5px;color:var(--ink);margin-bottom:8px;line-height:1.2">Tips de AEO directo a tu correo</h3>
+        <p style="font-size:14px;font-weight:300;color:var(--ink-mid);line-height:1.6">Cada semana: una táctica concreta para aparecer en ChatGPT y Perplexity. Sin spam.</p>
+      </div>
+      <div style="flex-shrink:0;min-width:280px;max-width:380px;width:100%">
+        <form id="nl-form-2" onsubmit="submitNewsletter2(event)" style="display:flex;gap:8px">
+          <input
+            id="nl-email-2"
+            type="email"
+            placeholder="tu@correo.com"
+            required
+            style="flex:1;padding:11px 14px;border:1.5px solid var(--border-strong);border-radius:9px;font-family:var(--font-body);font-size:14px;color:var(--ink);background:var(--bg-soft);outline:none;transition:border-color .2s;min-width:0"
+            onfocus="this.style.borderColor='var(--ink)'"
+            onblur="this.style.borderColor='var(--border-strong)'"
+          />
+          <button type="submit" id="nl-btn-2" style="background:var(--ink);color:var(--bg);font-family:var(--font-body);font-weight:700;font-size:13px;border:none;border-radius:9px;padding:11px 20px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s">
+            Suscribirse
+          </button>
+        </form>
+        <p id="nl-msg-2" style="margin-top:8px;font-size:12px;min-height:16px;color:var(--accent-deep)"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- AEO EXPLAINER -->
 <section class="aeo-section">
   <div class="inner">
@@ -1376,6 +1406,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 600);
 });
+
+// Newsletter (formulario 2 — debajo de precios)
+async function submitNewsletter2(e) {
+  e.preventDefault();
+  const btn = document.getElementById('nl-btn-2');
+  const msg = document.getElementById('nl-msg-2');
+  const email = document.getElementById('nl-email-2').value.trim();
+  btn.disabled = true; btn.textContent = 'Enviando...';
+  try {
+    const res = await fetch('https://backend-production-9578e.up.railway.app/newsletter', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'visible-ai-landing-precios' }),
+    });
+    if (res.ok) {
+      msg.textContent = '¡Listo! Te avisamos cada semana.';
+      msg.style.color = 'var(--accent-deep)';
+      document.getElementById('nl-form-2').reset();
+    } else { msg.textContent = 'Algo salió mal. Intenta de nuevo.'; msg.style.color = '#c0390e'; }
+  } catch { msg.textContent = 'Algo salió mal. Intenta de nuevo.'; msg.style.color = '#c0390e'; }
+  btn.disabled = false; btn.textContent = 'Suscribirse';
+}
 
 // Newsletter
 async function submitNewsletter(e) {
